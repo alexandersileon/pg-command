@@ -42,7 +42,9 @@ namespace pg.command
                             {
                                 Console.Write("sqlCommand contains UPDATE or INSERT");
                                 Console.Write("ExecuteNonQuery");
+                                Console.Write("");
                                 Console.WriteLine(cmd.ExecuteNonQuery());
+                                Console.Write("");
                                 Console.WriteLine("End ExecuteNonQuery");
                                 Console.WriteLine("All done.");
                             }
@@ -50,6 +52,7 @@ namespace pg.command
                             {
                                 Console.Write("sqlCommand SELECT");
                                 Console.Write("ExecuteReader");
+                                Console.Write("");
                                 var rdr = cmd.ExecuteReader();
 
                                 while (rdr.Read())
@@ -59,13 +62,15 @@ namespace pg.command
                                     for (int i = 0; i < rdr.FieldCount; i++)
                                     {
                                         sb.Append(rdr.GetValue(i).ToString());
+                                        if((i + 1) < rdr.FieldCount)
+                                            sb.Append("|");
                                     }
 
                                     Console.WriteLine(sb.ToString());
 
                                     sb.Clear();
                                 }
-
+                                Console.Write("");
                                 Console.WriteLine("All done..");
                             }
                         }
