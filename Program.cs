@@ -9,7 +9,7 @@ namespace pg.command
 
         public static void Main(string[] args)
         {
-            _connectionString = args.Length > 0 ?
+            _connectionString = args.Length > 0 && !string.IsNullOrWhiteSpace(args[0]) ?
                 args[0] :
                 Environment.GetEnvironmentVariable("ConnectionString_DefaultConnection") ?? "";
 
