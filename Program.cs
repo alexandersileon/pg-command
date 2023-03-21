@@ -63,7 +63,7 @@ namespace pg.command
                                     {
                                         sb.Append(rdr.GetValue(i).ToString());
                                         if((i + 1) < rdr.FieldCount)
-                                            sb.Append("|");
+                                            sb.Append("[]");
                                     }
 
                                     Console.WriteLine(sb.ToString());
